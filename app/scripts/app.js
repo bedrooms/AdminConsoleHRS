@@ -26,9 +26,16 @@ angular
 
     $stateProvider  
         .state('/', {
-            url: '/',         
-            templateUrl: 'views/indexMain.html',
-            controller: 'MainCtrl as vm'           
+            url: '/',              
+            views: {
+            'menu': {
+                templateUrl: 'views/partials/mainMenu.html',
+            },
+            'content': {
+                templateUrl: 'views/indexMain.html',
+                controller: 'MainCtrl as vm'
+            }
+        }       
         })
         .state('forms', {
             url: '/forms',         
