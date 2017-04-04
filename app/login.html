@@ -1,103 +1,71 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
 
-    <title>Gentelella Alela! | </title>
+<head>
+	<title>HR Staffing | Admin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="application/x-javascript">
+		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+	</script>
+	<meta name="keywords" content="HR Staffing"
+	/>
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!--webfonts-->
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700' rel='stylesheet'
+	 type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	<!--//webfonts-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
 
-    <!-- Bootstrap -->
-    <link href="/bower_components/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="/bower_components/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="/bower_components/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="/bower_components/gentelella/vendors/animate.css/animate.min.css" rel="stylesheet">
+<body>
+	<script>
+		$(document).ready(function (c) {
+			$('.close').on('click', function (c) {
+				$('.login-form').fadeOut('slow', function (c) {
+					$('.login-form').remove();
+				});
+			});
+		});
 
-    <!-- Custom Theme Style -->
-    <link href="/bower_components/gentelella/build/css/custom.min.css" rel="stylesheet">
-  </head>
+	</script>
+	<!--SIGN UP-->
+	<h1>Admin Login</h1>
+	<div class="login-form">
+		<div class="close"> </div>
+		<div class="head-info">			
+			<label class="lbl-1"> </label>
+			<label class="lbl-2"> </label>
+			<label class="lbl-3"> </label>
+		</div>
+		<div class="clear"> </div>
+		<div class="avtar">
+			<img src="images/avtar.png" />
+		</div>
+		<form>
+			<input type="text" class="text" ng-model="userName" placeholder="Username" >
+			<div class="key">
+				<input type="password" ng-model="password" placeholder="Password" >
+			</div>
+		</form>
+		<div class="signin">
+			<input type="submit" value="Login" ng-click="vm.loggedUser(userName, password)">
+		</div>
+	</div>
+	<div class="copy-rights">
+		<h4><p><a href="http://hr-staff.com" target="_blank">HR Staffing</a> </p></h4>
+		<p>Introducing Better People & Better Service!</a> </p>
+	</div>
+	<!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+	<!-- endbower -->
+    <!-- endbuild -->
 
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
-
-      <div class="login_wrapper">
-        <div class="animate form login_form">
-          <section class="login_content">
-            <form>
-              <h1>Login Form</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
-                <a class="reset_pass" href="#">Lost your password?</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
-
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>Create Account</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
-      </div>
-    </div>
-  </body>
+</body>
 </html>

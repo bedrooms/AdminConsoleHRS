@@ -10,37 +10,30 @@
  */
 angular
   .module('adminConsoleHrsApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',    
-    'ui.router',
-    'ngTouch'
+    'ui.router'
   ])
  .config(function($stateProvider, $urlRouterProvider,$locationProvider) {
-    
-    $urlRouterProvider.otherwise('/');
 
     $stateProvider  
-        .state('/', {
-            url: '/',              
-            views: {
-            'menu': {
-                templateUrl: 'views/partials/mainMenu.html',
-            },
-            'content': {
-                templateUrl: 'views/indexMain.html',
-                controller: 'MainCtrl as vm'
-            }
-        }       
+        .state('main', {
+            url: '/main',  
+            templateUrl: 'views/indexMain.html',
+             controller: 'MainCtrl as vm'
+            
         })
         .state('forms', {
-            url: '/forms',         
-            templateUrl: 'views/forms.html',
-            controller: 'MainCtrl as vm'           
+            url: '/forms', 
+             templateUrl: 'views/forms.html',
+                controller: 'MainCtrl as vm'             
+        })
+        .state('login', {
+            url: '/login', 
+            templateUrl: 'login.html',
+            controller: 'sessionLogInCtrl as vm'             
         })
 
+         $urlRouterProvider.otherwise('/main');
+
   });
+
+
