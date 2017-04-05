@@ -17,7 +17,7 @@ angular.module('adminConsoleHrsApp')
 
     var userInfo = svc.getUserInfo();
 
-    if(userInfo == undefined)
+    if(userInfo == null)
     {
         $location.path('login');      
     }

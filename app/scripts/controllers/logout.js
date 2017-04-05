@@ -11,15 +11,10 @@
 angular.module('adminConsoleHrsApp')
   .controller('logoutCtrl', function ($rootScope, $location, authenticationSvc) {
 
-    var vm = this;
+    var vm = this;   
 
-    var svc = authenticationSvc;  
-
-        vm.loggedOutUser = function() {
-
-        svc.logoutUser().then(function (response) {           
-                $location.path('login');
-            }
-        );
-    }    
+        vm.loggedOutUser = function logoutUser() {
+            authenticationSvc.logoutUser();
+            $location.path('login');
+          }    
   });

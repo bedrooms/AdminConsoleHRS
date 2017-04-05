@@ -43,9 +43,11 @@ app.factory("authenticationSvc", function ($http, $q, $window, $rootScope) {
 
     init();
 
- function logoutUser() {
- userInfo = undefined;           
- }
+    function logoutUser() {
+        $window.sessionStorage["userInfo"] = null;
+        userInfo = null;      
+        $rootScope.login = false;     
+    }
 
     function logout() {
         var deferred = $q.defer();
