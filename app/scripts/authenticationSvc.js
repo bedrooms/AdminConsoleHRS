@@ -3,6 +3,8 @@ var app = angular.module('adminConsoleHrsApp', '');
 app.factory("authenticationSvc", function ($http, $q, $window, $rootScope) {
     var userInfo;
 
+    var urlEndpoint = 'http://50.63.165.189/HRSService/HRAPISevice.svc/';
+
     function getUserInfo() {
         return userInfo;
     }
@@ -12,25 +14,26 @@ app.factory("authenticationSvc", function ($http, $q, $window, $rootScope) {
 
         $http({
             method: 'GET',
-            url: 'http://localhost:54491/HRAPISevice.svc/GetLoginUser/',
+            url: urlEndpoint + 'GetLoginUser/',
             params: {
                 userName: userName,
                 password: password
             }
         })
-            .then(function (response) {
-                userInfo = {
-                    lastSession: response.data.GetLoginUserAuthResult.LastSession,
-                    userMail: response.data.GetLoginUserAuthResult.Email,
-                    loginSuccess: response.data.GetLoginUserAuthResult.LoggedSuccess
-                };
-                $rootScope.login = true;
-                $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
-                deferred.resolve(userInfo);
-            },
-            function (response) { // optional
-                deferred.reject(error);
-            });
+        .then(function (response) {
+            userInfo = {
+                lastSession: response.data.GetLoginUserAuthResult.LastSession,
+                userMail: response.data.GetLoginUserAuthResult.Email,
+                loginSuccess: response.data.GetLoginUserAuthResult.LoggedSuccess,
+                firstName: response.data.GetLoginUserAuthResult.FirstName,
+                lastName: response.data.GetLoginUserAuthResult.LastName
+            };           
+            $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
+            deferred.resolve(userInfo);
+        },
+        function (response) { // optional
+            deferred.reject(error);
+        });
 
         return deferred.promise;
     }
@@ -45,22 +48,22 @@ app.factory("authenticationSvc", function ($http, $q, $window, $rootScope) {
 
     function logoutUser() {
         $window.sessionStorage["userInfo"] = null;
-        userInfo = null;      
-        $rootScope.login = false;     
+        userInfo = undefined;
+        $rootScope.login = false;
     }
 
     function logout() {
         var deferred = $q.defer();
 
         $http({
-          method: 'GET',
-            url: 'http://localhost:54491/HRAPISevice.svc/GetLoginUser/',
+            method: 'GET',
+            url: urlEndpoint + 'GetLoginUser/',
             params: {
                 userName: userName,
                 password: password
             }
         }).then(function (result) {
-            userInfo = null;            
+            userInfo = null;
             $window.sessionStorage["userInfo"] = null;
             deferred.resolve(result);
         }, function (error) {
@@ -74,7 +77,7 @@ app.factory("authenticationSvc", function ($http, $q, $window, $rootScope) {
     return {
         login: login,
         getUserInfo: getUserInfo,
-        logout : logout,
-        logoutUser : logoutUser
+        logout: logout,
+        logoutUser: logoutUser
     };
 });

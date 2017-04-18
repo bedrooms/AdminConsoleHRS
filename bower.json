@@ -1,8 +1,8 @@
 {
   "name": "admin-console-hrs",
   "version": "0.0.0",
-  "dependencies": { 
-    "angular": "^1.4.0", 
+  "dependencies": {
+    "angular": "^1.4.0",
     "angular-animate": "^1.4.0",
     "angular-aria": "^1.4.0",
     "angular-cookies": "^1.4.0",
@@ -14,10 +14,13 @@
     "gentelella": "^1.4.0",
     "angular-ui-router": "^0.4.2",
     "fastclick": "^1.0.6",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "font-awesome": "font-awesome#^4.7.0",
+    "angular-bootstrap": "^2.5.0"
   },
   "devDependencies": {
-    "angular-mocks": "^1.4.0"
+    "angular-mocks": "^1.4.0",
+    "font-awesome": "^4.7.0"
   },
   "appPath": "app",
   "moduleName": "adminConsoleHrsApp",

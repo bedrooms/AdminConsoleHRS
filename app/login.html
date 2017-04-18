@@ -53,11 +53,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="key">
 				<input type="password" ng-model="password" placeholder="Password" >
 			</div>
+			<a ng-show="vm.loginFail" > wrong user or password </a>
 		</form>
 		<div class="signin">
 			<input type="submit" value="Login" ng-click="vm.loggedUser(userName, password)">
 		</div>
 	</div>
+	
 	<div class="copy-rights">
 		<h4><p><a href="http://hr-staff.com" target="_blank">HR Staffing</a> </p></h4>
 		<p>Introducing Better People & Better Service!</a> </p>

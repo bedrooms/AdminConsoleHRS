@@ -31,6 +31,11 @@ angular
             templateUrl: 'login.html',
             controller: 'sessionLogInCtrl as vm'             
         })
+         .state('jobsAdmin', {
+            url: '/jobsAdmin', 
+            templateUrl: 'views/jobsAdmin.html',
+            controller: 'MainCtrl as vm'               
+        })
 
          $urlRouterProvider.otherwise('/main');
 

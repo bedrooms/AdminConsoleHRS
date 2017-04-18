@@ -15,15 +15,21 @@ angular.module('adminConsoleHrsApp')
 
     var svc = authenticationSvc;
 
-    var userInfo = svc.getUserInfo();
+    $rootScope.userInfo = svc.getUserInfo();
 
-    if(userInfo == null)
+    if($rootScope.userInfo == null)
     {
+        $rootScope.login = false;
         $location.path('login');      
     }
     else
     {
+      if($rootScope.userInfo.loginSuccess){
         $rootScope.login = true;
+      }else{
+        $rootScope.login = false;
+        $location.path('login');      
+      }
     }
 
     /**/
