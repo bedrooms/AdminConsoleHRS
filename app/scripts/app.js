@@ -10,7 +10,9 @@
  */
 angular
   .module('adminConsoleHrsApp', [
-    'ui.router'
+    'ui.router',
+    'ngMaterial', 
+    'ngMessages'
   ])
  .config(function($stateProvider, $urlRouterProvider,$locationProvider) {
 
@@ -34,7 +36,7 @@ angular
          .state('jobsAdmin', {
             url: '/jobsAdmin', 
             templateUrl: 'views/jobsAdmin.html',
-            controller: 'MainCtrl as vm'               
+            controller: 'jobsAdminInCtrl as vm'               
         })
 
          $urlRouterProvider.otherwise('/main');
